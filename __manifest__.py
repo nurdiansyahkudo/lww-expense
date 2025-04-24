@@ -5,7 +5,7 @@
     'summary': "Custom di Modul Expense",
 
     'description': """
-
+Menambahkan field Release Payment Date di Modul Expense
     """,
 
     'author': "PT Lintang Utama Infotek",
@@ -18,11 +18,13 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'expense'],
+    'depends': ['base', 'hr_expense'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        # VIEWS
+        'views/hr_expense_views.xml'
     ],
     'installable': True,
     'application': False,

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Expense Form -->
+    <record id="hr_expense_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.expense.form.inherit</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">            
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="release_date" string="Release Payment Date"
+                       invisible="not release_date or state not in ['approved', 'done']"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Expense Sheet Form -->
+    <record id="view_hr_expense_sheet_form_inherit" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.form.inherit</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+        <field name="arch" type="xml">            
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="release_date" string="Release Payment Date"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
